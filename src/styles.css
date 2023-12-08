@@ -6,7 +6,27 @@
 	box-sizing: border-box;
 }
 
+body {
+	display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.eric {
+    width: 450px;
+    margin: auto;
+    padding: 5px 0;
+    text-align: center;
+    color: dimgray;
+    font-size: 0.5em;
+ }
 
+/* REACT */
+#quote-box {
+	width: 450px;
+	margin: auto;
+	background-color: lightgray;
+}
 #quote-box {
 	display: grid;
 	justify-content: center;
