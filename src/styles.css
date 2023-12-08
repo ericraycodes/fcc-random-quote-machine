@@ -1,0 +1,14 @@
+
+/* Box rules */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+#quote-box {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
