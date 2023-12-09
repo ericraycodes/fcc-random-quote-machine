@@ -7,28 +7,71 @@
 }
 
 body {
+	height: 100vh;
 	display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
 }
-.eric {
-    width: 450px;
-    margin: auto;
-    padding: 5px 0;
-    text-align: center;
-    color: dimgray;
-    font-size: 0.5em;
- }
+
+/* TYPOGRAPHY */
+#quote-box {
+	font-family: raleway, sans-serif;
+}
 
 /* REACT */
 #quote-box {
-	width: 450px;
+	width: 550px;
 	margin: auto;
 	background-color: lightgray;
+	padding: 40px 50px;
+	border-radius: 3px;
+	text-align: center;
+	
+	/* flexbox */
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
-#quote-box {
-	display: grid;
-	justify-content: center;
-	align-items: center;
+.icon-quote {
+	font-size: 2.1em;
+	vertical-align: bottom;
+	margin-right: 12px;
 }
+#text {
+	font-size: 1.7em;
+	display: inline;
+}
+#author {
+	font-size: 1em;
+	text-align: right;
+}
+#tweet-quote {
+	font-size: 0.85em;
+	color: white;
+	background-color: darkgray;
+	padding: 10px 12px;
+	border-radius: 3px;
+}
+#new-quote {
+	font-size: 0.85em;
+	text-align: center;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 3px;
+	background-color: darkgray;
+	color: white;
+}
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
+.footer {
+    margin: 10px 0 40px;
+    padding: 5px 0;
+    color: dimgray;
+    font-family: sans-serif;
+    font-size: 0.7em;
+    text-align: center;
+ }

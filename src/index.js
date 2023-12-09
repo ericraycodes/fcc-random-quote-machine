@@ -4,15 +4,17 @@ import { useState } from 'react';
 
 import quotes from './quotes.js';
 
-import './index.css';
-import './styles.css'
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
+// import './index.css';
+import './styles.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <Footer />
   </React.StrictMode>
 );
 
@@ -28,34 +30,51 @@ root.render(
 
 const randomQuote = (q) => {
   const random = Math.floor(Math.random() * q.length);
-  console.log(q.length, random);
   return q[random];
 };
-randomQuote(quotes);
+
 // REACT
 function App() {
   const [quote, setQuote] = useState(randomQuote(quotes));
-
-  function handleClick() {
+  const handleClick = () => {
     setQuote(randomQuote(quotes));
-  }
-
+  };
   return (
     <section id='quote-box'>
-      <blockquote id='text'>
-        <span className='double-quote'>&quot;</span>
-        {quote['quote']}
-      </blockquote>
+      <QuoteAndAuthor quote={quote}/>
+      <Buttons onClick={handleClick}/>
+    </section>
+  );
+}
+
+function QuoteAndAuthor({ quote }) {
+  return (
+    <>
+      <div>
+        <FontAwesomeIcon className='icon-quote' icon={faQuoteLeft} />
+        <blockquote id='text'>{quote['quote']}</blockquote>
+      </div>
       <span id='author'>- {quote['author']}</span>
-      <button
-        id='new-quote'
-        onClick={handleClick}
-      >New quote</button>
+    </>
+  );
+}
+
+function Buttons({ onClick }) {
+  return (
+    <div className='buttons'>
       <a
         id='tweet-quote'
         href='twitter.com/intent/tweet'
         target='_blank'
-      >Tweet</a>
-    </section>
+      ><FontAwesomeIcon icon={faXTwitter} /></a>
+      <button
+        id='new-quote'
+        onClick={onClick}
+      >New quote</button>
+    </div>
   );
+}
+
+function Footer() {
+  return <div className='footer'>by Eric Ray O. Saladar</div>;
 }
