@@ -14,6 +14,29 @@ body {
     align-items: center;
 }
 
+/* color theme */
+:root {
+	--color-theme: gray;
+}
+#quote-box {
+	background-color: white;
+}
+body,
+#new-quote,
+#tweet-quote {
+	background-color: var(--color-theme);
+}
+.double-quote,
+#quote-box {
+	color: var(--color-theme);
+}
+#tweet-quote,
+#new-quote,
+.footer {
+	color: white;
+}
+
+
 /* TYPOGRAPHY */
 #quote-box {
 	font-family: raleway, sans-serif;
@@ -23,7 +46,6 @@ body {
 #quote-box {
 	width: 550px;
 	margin: auto;
-	background-color: lightgray;
 	padding: 40px 50px;
 	border-radius: 3px;
 	text-align: center;
@@ -41,6 +63,7 @@ body {
 #text {
 	font-size: 1.7em;
 	display: inline;
+/*	transition: 0.3s ease;*/
 }
 #author {
 	font-size: 1em;
@@ -48,10 +71,12 @@ body {
 }
 #tweet-quote {
 	font-size: 0.85em;
-	color: white;
-	background-color: darkgray;
 	padding: 10px 12px;
 	border-radius: 3px;
+}
+#tweet-quote:hover {
+	opacity: 80%;
+	cursor: pointer;
 }
 #new-quote {
 	font-size: 0.85em;
@@ -59,8 +84,10 @@ body {
 	padding: 10px 15px;
 	border: none;
 	border-radius: 3px;
-	background-color: darkgray;
-	color: white;
+}
+#new-quote:hover {
+	opacity: 80%;
+	cursor: pointer;
 }
 .buttons {
 	display: flex;
@@ -70,7 +97,6 @@ body {
 .footer {
     margin: 10px 0 40px;
     padding: 5px 0;
-    color: dimgray;
     font-family: sans-serif;
     font-size: 0.7em;
     text-align: center;

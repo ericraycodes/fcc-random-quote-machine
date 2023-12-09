@@ -18,63 +18,70 @@ root.render(
   </React.StrictMode>
 );
 
+const colors = ['gray', 'brown', 'yellow', 'blue', 'orange'];
 
-/**
-  There are two pieces of state:
-    1. random quote with author
-    2. random theme color to each random quote
-*/
-
-
-/* FCC Random Quote Machine */
-
-const randomQuote = (q) => {
-  const random = Math.floor(Math.random() * q.length);
-  return q[random];
-};
+const generateRandomQuote = (q) => q[Math.floor(Math.random() * q.length)];
+const generateRandomColor = (c) => c[Math.floor(Math.random() * c.length)];
 
 // REACT
 function App() {
-  const [quote, setQuote] = useState(randomQuote(quotes));
+  const [quote, setQuote] = useState(generateRandomQuote(quotes));
+  const [color, setColor] = useState(generateRandomColor(colors))
   const handleClick = () => {
-    setQuote(randomQuote(quotes));
+    setQuote(generateRandomQuote(quotes));
+    setColor(generateRandomColor(colors));
   };
+  document.querySelector('body').style.backgroundColor = color;
   return (
     <section id='quote-box'>
-      <QuoteAndAuthor quote={quote}/>
-      <Buttons onClick={handleClick}/>
+      <QuoteAndAuthor
+        quote={quote}
+        color={color}
+      />
+      <Buttons
+        onClick={handleClick}
+        color={color}
+      />
     </section>
   );
 }
 
-function QuoteAndAuthor({ quote }) {
+function QuoteAndAuthor({ quote, color }) {
   return (
     <>
-      <div>
+      <div style={{color: color}}>
         <FontAwesomeIcon className='icon-quote' icon={faQuoteLeft} />
         <blockquote id='text'>{quote['quote']}</blockquote>
       </div>
-      <span id='author'>- {quote['author']}</span>
+      <span id='author' style={{color: color}}>- {quote['author']}</span>
     </>
   );
 }
 
-function Buttons({ onClick }) {
+function Buttons({ onClick, color }) {
   return (
     <div className='buttons'>
       <a
         id='tweet-quote'
         href='twitter.com/intent/tweet'
         target='_blank'
+        style={{backgroundColor: color}}
       ><FontAwesomeIcon icon={faXTwitter} /></a>
       <button
         id='new-quote'
         onClick={onClick}
+        style={{backgroundColor: color}}
       >New quote</button>
     </div>
   );
 }
 
 function Footer() {
-  return <div className='footer'>by Eric Ray O. Saladar</div>;
+  return (
+    <div className='footer'>
+      <p>By Eric Ray O. Saladar. For freeCodeCamp purposes only.</p>
+    </div>
+  );
 }
+
+const ref ="https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=%22Start%20where%20you%20are.%20Use%20what%20you%20have.%20%20Do%20what%20you%20can.%22%20Arthur%20Ashe";
