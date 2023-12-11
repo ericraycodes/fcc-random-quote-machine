@@ -23,8 +23,6 @@ const quotes = [
 {
        "quote":"Eighty percent of success is showing up.","author":"Woody Allen"},
 {
-       "quote":"Your time is limited, so don’t waste it living someone else’s life.","author":"Steve Jobs"},
-{
        "quote":"Winning isn’t everything, but wanting to win is.","author":"Vince Lombardi"},
 {
        "quote":"I am not a product of my circumstances. I am a product of my decisions.","author":"Stephen Covey"},

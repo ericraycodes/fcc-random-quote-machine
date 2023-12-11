@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import quotes from './quotes.js';
+
 
 import './styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+
+// import data from './quotes.json';
 
 // Resource for random color options.
 const colors = [
@@ -22,6 +25,20 @@ const generateRandomColor = (c) => c[Math.floor(Math.random() * c.length)];
 export default function App() {
   const [quote, setQuote] = useState(generateRandomQuote(quotes));
   const [color, setColor] = useState(generateRandomColor(colors));
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const quotesData = fetch('./src/quotes.json')
+      .catch(error => console.log('FETCH ERROR:', error))
+      .then(response => {
+        console.log(response);
+        return response.json();
+      })
+      .catch(error => console.log('JSON ERROR:', error))
+      .then(data => console.log(data))
+      .catch(error => console.log('DATA ERROR:', error));
+  }, []);
+
   const handleClick = () => {
     setQuote(generateRandomQuote(quotes));
     setColor(generateRandomColor(colors));
