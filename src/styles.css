@@ -24,7 +24,6 @@ body {
 body,
 #new-quote,
 #tweet-quote {
-	background-color: var(--color-theme);
 }
 .double-quote,
 #quote-box {

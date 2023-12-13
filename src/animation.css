@@ -1,0 +1,10 @@
+
+/*.quote-container {
+	animation-name: fade-in;
+	animation-duration: 1s;
+	animation: ease;
+}*/
+
+.quote-container {
+	transition: 1s ease-out;
+}
