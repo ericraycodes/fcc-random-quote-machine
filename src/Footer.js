@@ -8,7 +8,7 @@ export default function Footer() {
         By Eric Ray O. Saladar. For freeCodeCamp purposes only.
       </p>
     </div>
-    {console.log('<Footer />')}
+    {console.log('COMPONENT: <Footer />')}
     </>
   );
 }

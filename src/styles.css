@@ -14,7 +14,7 @@ body {
     align-items: center;
 }
 
-/* color theme */
+/* COLOR */
 :root {
 	--color-theme: gray;
 }
@@ -40,18 +40,40 @@ body,
 #quote-box {
 	font-family: raleway, sans-serif;
 }
+#text {
+	font-size: 1.7em;
+}
+#author {
+	font-size: 1em;
+}
+#tweet-quote {
+	font-size: 0.85em;
+}
+#new-quote {
+	font-size: 0.85em;
+}
+.footer {
+    font-family: sans-serif;
+    font-size: 0.7em;
+    text-align: center;
+ }
 
-/* REACT */
+/* LAYOUT */
 #quote-box {
 	width: 550px;
 	margin: auto;
 	padding: 40px 50px;
 	border-radius: 3px;
 	text-align: center;
-	
+
 	/* flexbox */
 	display: flex;
 	flex-direction: column;
+	gap: 20px;
+}
+.quote-author-box {
+	display: flex;
+	flex-flow: column;
 	gap: 20px;
 }
 .icon-quote {
@@ -60,33 +82,20 @@ body,
 	margin-right: 12px;
 }
 #text {
-	font-size: 1.7em;
 	display: inline;
-/*	transition: 0.3s ease;*/
 }
 #author {
-	font-size: 1em;
 	text-align: right;
 }
 #tweet-quote {
-	font-size: 0.85em;
 	padding: 10px 12px;
 	border-radius: 3px;
 }
-#tweet-quote:hover {
-	opacity: 80%;
-	cursor: pointer;
-}
 #new-quote {
-	font-size: 0.85em;
 	text-align: center;
 	padding: 10px 15px;
 	border: none;
 	border-radius: 3px;
-}
-#new-quote:hover {
-	opacity: 80%;
-	cursor: pointer;
 }
 .buttons {
 	display: flex;
@@ -100,3 +109,16 @@ body,
     font-size: 0.7em;
     text-align: center;
  }
+
+/* TRANSITIONS */
+.quote-author-box {
+	transition: opacity 1s ease-in;
+}
+#tweet-quote:hover {
+	opacity: 80%;
+	cursor: pointer;
+}
+#new-quote:hover {
+	opacity: 80%;
+	cursor: pointer;
+}

@@ -24,31 +24,32 @@ const color = colors[1];
 export default function App() {
   const [quote, setQuote] = useState({ quote: '', author: '' });
   const [click, setClick] = useState(0);
-  const [fadeIn, setFadeIn] = useState(false);
+  const [fade, setFade] = useState(false);
 
   // This effect will run on first load before dependencies.
   useEffect(() => {
-    console.log('...useEffect');
+    console.log('...useEffect runs');
     setTimeout(async () => {
       const randomQuote = await fetchRandomQuote();
       setQuote(randomQuote);
-    }, 0);
+      setFade(false);
+    }, 1000);
+
+    return () => {
+      console.log('...useEffect cleanup');
+      setFade(true);
+    };
   }, [click]);
 
-  // animation effects
-  useEffect(() => {
-    setFadeIn(true);
-  }, []);
-
-  function handleClick() {
+  const handleClick = () => {
+    console.log('Button clicked.')
     setClick(click + 1);
-  }
-  console.log('click', click);
-
-  const fadeInStyle = {
-    opacity: fadeIn ? 1 : 0,
-    transition: 'opacity 500mx linear'
   };
+
+  const style = {
+    opacity : fade ? '0%':'100%'
+  };
+
 
   return (
     <>
@@ -56,13 +57,13 @@ export default function App() {
       <Quote
         quote={quote}
         color={color}
-        fadeInStyle={fadeInStyle}
+        style={style}
       />
       <Buttons
         onClick={handleClick}
       />
     </section>
-    {console.log('<App />')}
+    {console.log('COMPONENT: <App />')}
     </>
   );
 }

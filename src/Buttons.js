@@ -17,7 +17,7 @@ export default function Buttons({ onClick }) {
         onClick={onClick}
       >New quote</button>
     </div>
-    {console.log('<Button />')}
+    {console.log('COMPONENT: <Button />')}
     </>
   );
 }

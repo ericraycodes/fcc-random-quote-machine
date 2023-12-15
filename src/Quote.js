@@ -1,12 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 
-import './animation.css';
-
-export default function Quote({ quote, color, fadeInStyle }) {
+export default function Quote({ quote, color, style }) {
+  //console.log('<Quote/>:', quote);
   return (
-    <>
-      <div className='quote-container' style={fadeInStyle}>
+    <div className='quote-author-box' style={style}>
+      <div className='quote-container'>
         <FontAwesomeIcon
           className='icon-quote'
           icon={faQuoteLeft}
@@ -16,7 +15,7 @@ export default function Quote({ quote, color, fadeInStyle }) {
         </blockquote>
       </div>
       <span id='author'>- {quote['author']}</span>
-      {console.log('<Quote />')}
-    </>
+      {console.log('COMPONENT: <Quote />')}
+    </div>
   );
 }
