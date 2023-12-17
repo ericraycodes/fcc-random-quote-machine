@@ -15,19 +15,8 @@ body {
 }
 
 /* COLOR */
-:root {
-	--color-theme: gray;
-}
 #quote-box {
 	background-color: white;
-}
-body,
-#new-quote,
-#tweet-quote {
-}
-.double-quote,
-#quote-box {
-	color: var(--color-theme);
 }
 #tweet-quote,
 #new-quote,
@@ -111,8 +100,13 @@ body,
  }
 
 /* TRANSITIONS */
+body,
+#tweet-quote,
+#new-quote {
+	transition: background-color 0.7s ease-in;
+}
 .quote-author-box {
-	transition: opacity 1s ease-in;
+	transition: opacity 0.7s ease-in;
 }
 #tweet-quote:hover {
 	opacity: 80%;

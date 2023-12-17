@@ -8,21 +8,12 @@ import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 
 import Quote from './Quote';
 import Buttons from './Buttons';
-import fetchRandomQuote from './fetchRandomQuote.js';
-
-// Resource for random color options.
-const colors = [
-  '#711DB0', '#FFB534', '#88AB8E', '#1640D6', '#3081D0',
-  '#994D1C', '#B06161', '#A25772', '#FF5B22', '#B0A695'
-];
-
-
-// temporary
-const color = colors[1];
+import { fetchRandomQuote, randomColor } from './functions.js';
 
 
 export default function App() {
   const [quote, setQuote] = useState({ quote: '', author: '' });
+  const [color, setColor] = useState(randomColor());
   const [click, setClick] = useState(0);
   const [fade, setFade] = useState(false);
 
@@ -33,8 +24,8 @@ export default function App() {
       const randomQuote = await fetchRandomQuote();
       setQuote(randomQuote);
       setFade(false);
-    }, 1000);
-
+      setColor(randomColor());
+    }, 700);
     return () => {
       console.log('...useEffect cleanup');
       setFade(true);
@@ -46,10 +37,7 @@ export default function App() {
     setClick(click + 1);
   };
 
-  const style = {
-    opacity : fade ? '0%':'100%'
-  };
-
+  document.body.style.backgroundColor = color;
 
   return (
     <>
@@ -57,10 +45,11 @@ export default function App() {
       <Quote
         quote={quote}
         color={color}
-        style={style}
+        fade={fade}
       />
       <Buttons
         onClick={handleClick}
+        color={color}
       />
     </section>
     {console.log('COMPONENT: <App />')}
